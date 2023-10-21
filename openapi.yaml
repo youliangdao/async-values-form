@@ -1,0 +1,198 @@
+openapi: "3.0.0"
+
+info:
+  title: "json-placeholder API"
+  version: "1.0.0"
+  description: "json-placeholder API"
+
+servers:
+  - url: "https://jsonplaceholder.typicode.com/"
+    description: "json-placeholder server"
+
+tags:
+  - name: "Users"
+    description: "ユーザー操作"
+  - name: "Albums"
+    description: "アルバム操作"
+  - name: "Photos"
+    description: "写真操作"
+
+paths:
+  /users:
+    get:
+      tags:
+        - Users
+      summary: Get a list of users
+      responses:
+        200:
+          description: A list of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/User"
+
+  /users/{userId}:
+    get:
+      tags:
+        - Users
+      summary: Get a user by ID
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: A user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+
+  /albums:
+    get:
+      tags:
+        - Albums
+      summary: Get a list of albums
+      responses:
+        200:
+          description: A list of albums
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Album"
+
+  /albums/{albumId}:
+    get:
+      tags:
+        - Albums
+      summary: Get an album by ID
+      parameters:
+        - name: albumId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: An album
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Album"
+
+  /photos:
+    get:
+      tags:
+        - Photos
+      summary: Get a list of photos
+      responses:
+        200:
+          description: A list of photos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Photo"
+
+  /photos/{photoId}:
+    get:
+      tags:
+        - Photos
+      summary: Get a photo by ID
+      parameters:
+        - name: photoId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: A photo
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Photo"
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        username:
+          type: string
+        email:
+          type: string
+        address:
+          $ref: "#/components/schemas/Address"
+        phone:
+          type: string
+        website:
+          type: string
+        company:
+          $ref: "#/components/schemas/Company"
+
+    Address:
+      type: object
+      properties:
+        street:
+          type: string
+        suite:
+          type: string
+        city:
+          type: string
+        zipcode:
+          type: string
+        geo:
+          $ref: "#/components/schemas/Geo"
+
+    Geo:
+      type: object
+      properties:
+        lat:
+          type: string
+        lng:
+          type: string
+
+    Company:
+      type: object
+      properties:
+        name:
+          type: string
+        catchPhrase:
+          type: string
+        bs:
+          type: string
+
+    Album:
+      type: object
+      properties:
+        id:
+          type: integer
+        userId:
+          type: integer
+        title:
+          type: string
+
+    Photo:
+      type: object
+      properties:
+        id:
+          type: integer
+        albumId:
+          type: integer
+        title:
+          type: string
+        url:
+          type: string
+        thumbnailUrl:
+          type: string
