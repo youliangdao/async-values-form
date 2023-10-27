@@ -26,11 +26,11 @@ export const IndexPage = () => {
     email: "",
   };
 
-  return (
-    isUsersFetched &&
-    isAlbumsFetched &&
-    isPhotosFetched &&
-    user &&
-    photo && <SelectForm {...{ defaultValues, user, photo }} />
-  );
+  if (
+    !(isUsersFetched && isAlbumsFetched && isPhotosFetched && user && photo)
+  ) {
+    return <p>Loading...</p>;
+  }
+
+  return <SelectForm {...{ defaultValues, user, photo }} />;
 };

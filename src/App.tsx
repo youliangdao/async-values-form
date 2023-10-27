@@ -19,7 +19,7 @@ function App() {
           <a href="" className="text-primary underline">
             Zod
           </a>{" "}
-          を用いて非同期の値を扱うフォームを作成するサンプルです。
+          を用いて非同期の値を扱うフォームのサンプルです。
         </p>
         <div className="mt-4 min-h-[350px] w-full p-10">
           <IndexPage />
