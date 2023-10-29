@@ -24,7 +24,7 @@ import { ChangeEvent, useState } from "react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { useOptions } from "@/hooks/useOptions";
 import { AxiosResponse } from "axios";
-import { Photo, User } from "@/api/types";
+import { Photo } from "@/api/types";
 
 function getImageData(event: ChangeEvent<HTMLInputElement>) {
   // FileList is immutable, so we need to create a new one
@@ -43,22 +43,15 @@ function getImageData(event: ChangeEvent<HTMLInputElement>) {
 
 export function SelectForm({
   defaultValues: initialValues,
-  user,
   photo,
 }: {
   defaultValues?: FormSchemaType;
-  user: AxiosResponse<User>;
-  photo: AxiosResponse<Photo>;
+  photo?: AxiosResponse<Photo>;
 }) {
-  const [preview, setPreview] = useState(photo.data.thumbnailUrl);
+  const [preview, setPreview] = useState(photo?.data.thumbnailUrl);
   const form = useForm<FormSchemaType>({
     resolver: zodResolver(FormSchema),
-    defaultValues: {
-      ...initialValues,
-      accountName: user.data.name,
-      email: user.data.email,
-      thumbnail: photo.data.thumbnailUrl,
-    },
+    defaultValues: initialValues,
   });
 
   const userId = form.watch("userId");

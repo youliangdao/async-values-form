@@ -38,6 +38,9 @@ dependencies:
   lucide-react:
     specifier: ^0.288.0
     version: 0.288.0(react@18.2.0)
+  object-hash:
+    specifier: ^3.0.0
+    version: 3.0.0
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -47,6 +50,9 @@ dependencies:
   react-hook-form:
     specifier: ^7.47.0
     version: 7.47.0(react@18.2.0)
+  stable-hash:
+    specifier: ^0.0.3
+    version: 0.0.3
   tailwind-merge:
     specifier: ^1.14.0
     version: 1.14.0
@@ -61,6 +67,9 @@ devDependencies:
   '@types/node':
     specifier: ^20.8.7
     version: 20.8.7
+  '@types/object-hash':
+    specifier: ^3.0.5
+    version: 3.0.5
   '@types/react':
     specifier: ^18.2.15
     version: 18.2.15
@@ -1908,6 +1917,10 @@ packages:
     resolution: {integrity: sha512-21TKHHh3eUHIi2MloeptJWALuCu5H7HQTdTrWIFReA8ad+aggoX+lRes3ex7/FtpC+sVUpFMQ+QTfYr74mruiQ==}
     dependencies:
       undici-types: 5.25.3
+    dev: true
+
+  /@types/object-hash@3.0.5:
+    resolution: {integrity: sha512-WFGeSazfL5BWbEh5ACaAIs5RT6sbVIwBs1rgHUp+kZzX/gub41LEEYWTWbYnE/sKb7hDdPEsGa1Vmcaay2fS5g==}
     dev: true
 
   /@types/prop-types@15.7.9:
@@ -4960,6 +4973,10 @@ packages:
   /sprintf-js@1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
     dev: true
+
+  /stable-hash@0.0.3:
+    resolution: {integrity: sha512-c63fvNCQ7ip1wBfPv54MflMA5L6OE5J0p6Fg13IpKft4JAFoNal8+s/jtJ8PibrwqXm4onnbeQsADs8k0NQGUA==}
+    dev: false
 
   /stacktracey@2.1.8:
     resolution: {integrity: sha512-Kpij9riA+UNg7TnphqjH7/CzctQ/owJGNbFkfEeve4Z4uxT5+JapVLFXcsurIfN34gnTWZNJ/f7NMG0E8JDzTw==}

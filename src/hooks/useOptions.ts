@@ -31,7 +31,7 @@ export const useOptions = ({ userId, albumId }: Props) => {
       queryKey: getGetAlbumsQueryKey(),
       select: (data) => {
         if (data.data.length === 0) {
-          return [{ value: "", label: "選択できるアルバムがありません" }];
+          return [{ value: "0", label: "選択できるアルバムがありません" }];
         }
 
         return [
@@ -48,7 +48,7 @@ export const useOptions = ({ userId, albumId }: Props) => {
       queryKey: getGetPhotosQueryKey(),
       select: (data) => {
         if (data.data.length === 0) {
-          return [{ value: "", label: "選択できる写真がありません" }];
+          return [{ value: "0", label: "選択できる写真がありません" }];
         }
 
         return [
@@ -66,13 +66,13 @@ export const useOptions = ({ userId, albumId }: Props) => {
 
   return {
     userOptions: userOptions || [
-      { value: "", label: "選択できるユーザーがいません" },
+      { value: "0", label: "選択できるユーザーがいません" },
     ],
     albumOptions: albumOptions || [
-      { value: "", label: "選択できるアルバムがありません" },
+      { value: "0", label: "選択できるアルバムがありません" },
     ],
     photoOptions: photoOptions || [
-      { value: "", label: "選択できる写真がありません" },
+      { value: "0", label: "選択できる写真がありません" },
     ],
   };
 };
